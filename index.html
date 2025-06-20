@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Tag Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #cc0000;
+        }
+        #copyButton {
+            background-color: #4CAF50;
+        }
+        #copyButton:hover {
+            background-color: #45a049;
+        }
+        #tagOutput {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            word-wrap: break-word;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>YouTube Tag Generator</h1>
+        <input type="text" id="videoTopic" placeholder="Masukkan topik video (contoh: Pizza Script)">
+        <br>
+        <button onclick="generateTags('v3')">Buat Tag V3 (SEO-Friendly)</button>
+        <button onclick="generateTags('v4')">Buat Tag V4 (Game Spesifik)</button>
+        <button onclick="generateTags('v5')">Buat Tag V5 (Pengguna Mobile)</button>
+        <button onclick="generateTags('v6')">Buat Tag V6 (Pengguna PC/Executor)</button>
+        <button onclick="generateTags('v7')">Buat Tag V7 (Trending Mingguan)</button>
+        <button onclick="generateTags('v8')">Buat Tag V8 (Clickbait/Viral)</button>
+        <button onclick="generateTags('v9')">Buat Tag V9 (Channel Besar)</button>
+        <button onclick="generateTags('v10')">Buat Tag V10 (YouTube Shorts)</button>
+        <br>
+        <button id="copyButton" onclick="copyTags()">Copy Tags</button>
+        <div id="tagOutput">Tag akan muncul di sini...</div>
+    </div>
+
+    <script>
+        function generateTags(version) {
+            const topic = document.getElementById('videoTopic').value.trim();
+            const output = document.getElementById('tagOutput');
+            let tags = [];
+
+            // Tag umum untuk Roblox
+            const baseTags = [
+                'Roblox', 'Roblox script', 'Roblox gameplay', 'Roblox tutorial', 'Roblox codes',
+                'Roblox scripting', 'Roblox game development', 'Roblox 2025', 'Roblox tips',
+                'Roblox tricks', 'Roblox guide', 'Roblox update'
+            ];
+
+            // Tag spesifik berdasarkan topik yang dimasukkan
+            let specificTags = [];
+            if (topic) {
+                specificTags = [
+                    topic, `${topic} Roblox`, `${topic} script`, `${topic} tutorial`,
+                    `${topic} gameplay`, `${topic} guide`, `${topic} Roblox Studio`
+                ];
+            }
+
+            // Tag berdasarkan versi tombol
+            let versionTags = [];
+            switch (version) {
+                case 'v3': // Profesional / SEO-Friendly
+                    versionTags = [
+                        'best Roblox scripts', 'Roblox script 2025', 'Roblox tutorial 2025',
+                        'Roblox scripting guide', 'how to script in Roblox', 'Roblox SEO tags'
+                    ];
+                    break;
+                case 'v4': // Game Spesifik (Blox Fruits, Shindo Life, dll.)
+                    versionTags = [
+                        'Blox Fruits', 'Blox Fruits script', 'Shindo Life', 'Shindo Life script',
+                        'Adopt Me', 'Adopt Me script', 'Arsenal script', 'Roblox popular games'
+                    ];
+                    break;
+                case 'v5': // Pengguna Mobile
+                    versionTags = [
+                        'Roblox mobile', 'Roblox mobile script', 'Roblox mobile gameplay',
+                        'Roblox mobile tutorial', 'Roblox on phone', 'mobile Roblox hacks'
+                    ];
+                    break;
+                case 'v6': // Pengguna PC/Executor
+                    versionTags = [
+                        'Roblox PC script', 'Roblox executor', 'Roblox script executor',
+                        'Roblox PC gameplay', 'Roblox PC hacks', 'Roblox Studio PC'
+                    ];
+                    break;
+                case 'v7': // Trending Mingguan
+                    versionTags = [
+                        'Roblox trending 2025', 'Roblox weekly update', 'Roblox new scripts',
+                        'Roblox trending scripts', 'Roblox viral scripts', 'Roblox hot topics'
+                    ];
+                    break;
+                case 'v8': // Clickbait/Viral
+                    versionTags = [
+                        'Roblox hack script', 'Roblox free script', 'Roblox op script',
+                        'Roblox insane script', 'Roblox viral gameplay', 'Roblox clickbait'
+                    ];
+                    break;
+                case 'v9': // Channel Besar (Inspirasi Keyword)
+                    versionTags = [
+                        'Roblox KreekCraft', 'Roblox Flamingo', 'Roblox ItsFunneh',
+                        'Roblox popular YouTubers', 'Roblox top creators', 'Roblox famous scripts'
+                    ];
+                    break;
+                case 'v10': // YouTube Shorts
+                    versionTags = [
+                        'Roblox Shorts', 'Roblox quick tips', 'Roblox short tutorial',
+                        'Roblox script shorts', 'Roblox 30 seconds', 'Roblox viral shorts'
+                    ];
+                    break;
+                default:
+                    versionTags = [];
+            }
+
+            // Menggabungkan semua tag
+            tags = [...baseTags, ...specificTags, ...versionTags];
+
+            // Menampilkan tag di output
+            if (tags.length > 0) {
+                output.innerHTML = `<strong>Tag untuk "${topic || 'Roblox'}":</strong><br>${tags.join(', ')}`;
+            } else {
+                output.innerHTML = 'Masukkan topik video untuk menghasilkan tag!';
+            }
+        }
+
+        function copyTags() {
+            const tagOutput = document.getElementById('tagOutput').innerText;
+            const tagsOnly = tagOutput.split(':').slice(1).join(':').trim();
+            navigator.clipboard.writeText(tagsOnly).then(() => {
+                alert('Tag berhasil disalin ke clipboard!');
+            }).catch(() => {
+                alert('Gagal menyalin tag. Silakan salin manual.');
+            });
+        }
+    </script>
+</body>
+</html>
