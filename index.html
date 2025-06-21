@@ -7,59 +7,93 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #121212; /* Latar belakang hitam gelap */
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
             flex-direction: column;
+            color: #e0e0e0; /* Teks utama abu-abu terang */
         }
         .container {
-            background-color: white;
+            background-color: #1e1e1e; /* Kotak kontainer abu-abu sangat gelap */
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             text-align: center;
             width: 80%;
             max-width: 600px;
         }
         h1 {
-            color: #333;
+            color: #ffffff; /* Judul putih bersih */
         }
         input[type="text"] {
             width: 80%;
             padding: 10px;
             margin: 10px 0;
-            border: 1px solid #ccc;
+            border: 1px solid #404040; /* Border abu-abu gelap */
+            border-radius: 4px;
+            background-color: #2a2a2a; /* Latar input gelap */
+            color: #e0e0e0; /* Teks input terang */
+        }
+        input[type="text"]::placeholder {
+            color: #888888; /* Placeholder abu-abu */
+        }
+        .button-container {
+            max-height: 200px; /* Tinggi maksimum kotak tombol */
+            overflow-y: auto; /* Scroll vertikal */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+            padding: 10px;
+            border: 1px solid #404040; /* Border abu-abu gelap */
+            border-radius: 4px;
+            margin: 10px 0;
+            background-color: #252525; /* Latar kotak tombol gelap */
+        }
+        /* Kustomisasi scrollbar */
+        .button-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        .button-container::-webkit-scrollbar-track {
+            background: #2a2a2a;
+        }
+        .button-container::-webkit-scrollbar-thumb {
+            background: #555555;
             border-radius: 4px;
         }
         button {
-            padding: 10px 20px;
-            margin: 5px;
-            background-color: #ff0000;
-            color: white;
+            padding: 8px 12px; /* Ukuran tombol kecil */
+            margin: 3px;
+            background-color: #d32f2f; /* Merah gelap untuk tombol */
+            color: #ffffff; /* Teks tombol putih */
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            font-size: 12px; /* Font kecil */
         }
         button:hover {
-            background-color: #cc0000;
+            background-color: #b71c1c; /* Merah lebih gelap saat hover */
         }
         #copyButton {
-            background-color: #4CAF50;
+            background-color: #388e3c; /* Hijau gelap untuk tombol Copy */
+            padding: 10px 20px;
+            font-size: 14px;
         }
         #copyButton:hover {
-            background-color: #45a049;
+            background-color: #2e7d32; /* Hijau lebih gelap saat hover */
         }
         #tagOutput {
             margin-top: 20px;
             padding: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
+            background-color: #2a2a2a; /* Latar output gelap */
+            border: 1px solid #404040; /* Border abu-abu gelap */
             border-radius: 4px;
             word-wrap: break-word;
             text-align: left;
+            color: #e0e0e0; /* Teks output terang */
         }
     </style>
 </head>
@@ -67,16 +101,75 @@
     <div class="container">
         <h1>YouTube Tag Generator</h1>
         <input type="text" id="videoTopic" placeholder="Masukkan topik video (contoh: Pizza Script)">
-        <br>
-        <button onclick="generateTags('v3')">Buat Tag V3 (SEO-Friendly)</button>
-        <button onclick="generateTags('v4')">Buat Tag V4 (Game Spesifik)</button>
-        <button onclick="generateTags('v5')">Buat Tag V5 (Pengguna Mobile)</button>
-        <button onclick="generateTags('v6')">Buat Tag V6 (Pengguna PC/Executor)</button>
-        <button onclick="generateTags('v7')">Buat Tag V7 (Trending Mingguan)</button>
-        <button onclick="generateTags('v8')">Buat Tag V8 (Clickbait/Viral)</button>
-        <button onclick="generateTags('v9')">Buat Tag V9 (Channel Besar)</button>
-        <button onclick="generateTags('v10')">Buat Tag V10 (YouTube Shorts)</button>
-        <br>
+        <div class="button-container">
+            <button onclick="generateTags('v3')">Buat Tag V3 (SEO-Friendly)</button>
+            <button onclick="generateTags('v4')">Buat Tag V4 (Game Spesifik)</button>
+            <button onclick="generateTags('v5')">Buat Tag V5 (Pengguna Mobile)</button>
+            <button onclick="generateTags('v6')">Buat Tag V6 (Pengguna PC/Executor)</button>
+            <button onclick="generateTags('v7')">Buat Tag V7 (Trending Mingguan)</button>
+            <button onclick="generateTags('v8')">Buat Tag V8 (Clickbait/Viral)</button>
+            <button onclick="generateTags('v9')">Buat Tag V9 (Channel Besar)</button>
+            <button onclick="generateTags('v10')">Buat Tag V10 (YouTube Shorts)</button>
+            <button onclick="generateTags('v11')">Buat Tag V11 (Keyless)</button>
+            <button onclick="generateTags('v12')">Buat Tag V12 (Key System)</button>
+            <button onclick="generateTags('v13')">Buat Tag V13 (Op)</button>
+            <button onclick="generateTags('v14')">Buat Tag V14 (Best)</button>
+            <button onclick="generateTags('v15')">Buat Tag V15 (The Very Best)</button>
+            <button onclick="generateTags('v16')">Buat Tag V16 (Best Script)</button>
+            <button onclick="generateTags('v17')">Buat Tag V17 (Recommend)</button>
+            <button onclick="generateTags('v18')">Buat Tag V18 (Best Recommend)</button>
+            <button onclick="generateTags('v19')">Buat Tag V19 (The Best Recommendation)</button>
+            <button onclick="generateTags('v20')">Buat Tag V20 (The Most Recommended Best)</button>
+            <button onclick="generateTags('v21')">Buat Tag V21 (Best Recommendation)</button>
+            <button onclick="generateTags('v22')">Buat Tag V22 (Top Recommendation)</button>
+            <button onclick="generateTags('v23')">Buat Tag V23 (Highly Recommended)</button>
+            <button onclick="generateTags('v24')">Buat Tag V24 (Top Choice)</button>
+            <button onclick="generateTags('v25')">Buat Tag V25 (Most Recommended)</button>
+            <button onclick="generateTags('v26')">Buat Tag V26 (Preferred Option)</button>
+            <button onclick="generateTags('v27')">Buat Tag V27 (Must Try)</button>
+            <button onclick="generateTags('v28')">Buat Tag V28 (Worth It)</button>
+            <button onclick="generateTags('v29')">Buat Tag V29 (Top Rated)</button>
+            <button onclick="generateTags('v30')">Buat Tag V30 (The Ultimate Choice)</button>
+            <button onclick="generateTags('v31')">Buat Tag V31 (Best of the Best)</button>
+            <button onclick="generateTags('v32')">Buat Tag V32 (Highly Rated)</button>
+            <button onclick="generateTags('v33')">Buat Tag V33 (Most Loved)</button>
+            <button onclick="generateTags('v34')">Buat Tag V34 (Everyone Recommends)</button>
+            <button onclick="generateTags('v35')">Buat Tag V35 (Most Picked)</button>
+            <button onclick="generateTags('v36')">Buat Tag V36 (Tried and True)</button>
+            <button onclick="generateTags('v37')">Buat Tag V37 (Superior Choice)</button>
+            <button onclick="generateTags('v38')">Buat Tag V38 (Best Value Option)</button>
+            <button onclick="generateTags('v39')">Buat Tag V39 (The Gold Standard)</button>
+            <button onclick="generateTags('v40')">Buat Tag V40 (High-End Choice)</button>
+            <button onclick="generateTags('v41')">Buat Tag V41 (Chosen by Experts)</button>
+            <button onclick="generateTags('v42')">Buat Tag V42 (Quality Recommendation)</button>
+            <button onclick="generateTags('v43')">Buat Tag V43 (Preferred Choice)</button>
+            <button onclick="generateTags('v44')">Buat Tag V44 (Top-Tier Choice)</button>
+            <button onclick="generateTags('v45')">Buat Tag V45 (Elite Pick)</button>
+            <button onclick="generateTags('v46')">Buat Tag V46 (Smart Choice)</button>
+            <button onclick="generateTags('v47')">Buat Tag V47 (Insider’s Pick)</button>
+            <button onclick="generateTags('v48')">Buat Tag V48 (Top of the List)</button>
+            <button onclick="generateTags('v49')">Buat Tag V49 (S-tier Choice)</button>
+            <button onclick="generateTags('v50')">Buat Tag V50 (The Real Deal)</button>
+            <button onclick="generateTags('v51')">Buat Tag V51 (Top-Tier Stuff)</button>
+            <button onclick="generateTags('v52')">Buat Tag V52 (Underrated Gem)</button>
+            <button onclick="generateTags('v53')">Buat Tag V53 (Trusted Choice)</button>
+            <button onclick="generateTags('v54')">Buat Tag V54 (Proven Favorite)</button>
+            <button onclick="generateTags('v55')">Buat Tag V55 (Reliable Pick)</button>
+            <button onclick="generateTags('v56')">Buat Tag V56 (Reputable Choice)</button>
+            <button onclick="generateTags('v57')">Buat Tag V57 (Verified)</button>
+            <button onclick="generateTags('v58')">Buat Tag V58 (Confidence Choice)</button>
+            <button onclick="generateTags('v59')">Buat Tag V59 (Legit Pick)</button>
+            <button onclick="generateTags('v60')">Buat Tag V60 (Safe Bet)</button>
+            <button onclick="generateTags('v61')">Buat Tag V61 (Top Pick)</button>
+            <button onclick="generateTags('v62')">Buat Tag V62 (Most Wanted)</button>
+            <button onclick="generateTags('v63')">Buat Tag V63 (Highly Trusted)</button>
+            <button onclick="generateTags('v64')">Buat Tag V64 (Top Trusted Choice)</button>
+            <button onclick="generateTags('v65')">Buat Tag V65 (Most Efficient Choice)</button>
+            <button onclick="generateTags('v67')">Buat Tag V67 (High Impact Option)</button>
+            <button onclick="generateTags('v68')">Buat Tag V68 (The Absolute Best)</button>
+            <button onclick="generateTags('v69')">Buat Tag V69 (Best Performing)</button>
+            <button onclick="generateTags('v70')">Buat Tag V70 (Best Working Option)</button>
+        </div>
         <button id="copyButton" onclick="copyTags()">Copy Tags</button>
         <div id="tagOutput">Tag akan muncul di sini...</div>
     </div>
@@ -152,6 +245,364 @@
                     versionTags = [
                         'Roblox Shorts', 'Roblox quick tips', 'Roblox short tutorial',
                         'Roblox script shorts', 'Roblox 30 seconds', 'Roblox viral shorts'
+                    ];
+                    break;
+                case 'v11': // Keyless
+                    versionTags = [
+                        'Roblox keyless script', 'Roblox no key script', 'Roblox free keyless',
+                        'Roblox script without key', 'keyless Roblox executor', 'Roblox keyless hack'
+                    ];
+                    break;
+                case 'v12': // Key System
+                    versionTags = [
+                        'Roblox key system', 'Roblox script with key', 'Roblox premium script',
+                        'Roblox key script 2025', 'Roblox key system tutorial', 'Roblox key hack'
+                    ];
+                    break;
+                case 'v13': // Op
+                    versionTags = [
+                        'Roblox op script', 'Roblox overpowered script', 'Roblox op hack',
+                        'Roblox op gameplay', 'Roblox op tutorial', 'Roblox op 2025'
+                    ];
+                    break;
+                case 'v14': // Best
+                    versionTags = [
+                        'best Roblox script', 'Roblox best hack', 'Roblox best gameplay',
+                        'best Roblox tutorial', 'Roblox top script', 'Roblox best 2025'
+                    ];
+                    break;
+                case 'v15': // The Very Best
+                    versionTags = [
+                        'Roblox very best script', 'Roblox top tier script', 'Roblox elite script',
+                        'the very best Roblox hack', 'Roblox ultimate script', 'Roblox very best 2025'
+                    ];
+                    break;
+                case 'v16': // Best Script
+                    versionTags = [
+                        'Roblox best script 2025', 'top Roblox script', 'best Roblox script tutorial',
+                        'Roblox script showcase', 'Roblox best script hack', 'Roblox script elite'
+                    ];
+                    break;
+                case 'v17': // Recommend
+                    versionTags = [
+                        'Roblox recommended script', 'Roblox script recommendation', 'Roblox top picks',
+                        'recommended Roblox tutorial', 'Roblox script guide', 'Roblox must-try script'
+                    ];
+                    break;
+                case 'v18': // Best Recommend
+                    versionTags = [
+                        'best recommended Roblox script', 'Roblox top recommended script',
+                        'Roblox best picks', 'Roblox script highly recommended', 'best Roblox guide',
+                        'Roblox top script 2025'
+                    ];
+                    break;
+                case 'v19': // The Best Recommendation
+                    versionTags = [
+                        'the best Roblox script recommendation', 'Roblox ultimate recommendation',
+                        'Roblox top script pick', 'Roblox highly recommended script',
+                        'Roblox best guide 2025', 'Roblox elite recommendation'
+                    ];
+                    break;
+                case 'v20': // The Most Recommended Best
+                    versionTags = [
+                        'most recommended Roblox script', 'Roblox top best script',
+                        'Roblox ultimate best script', 'Roblox most recommended hack',
+                        'Roblox best script guide', 'Roblox top choice 2025'
+                    ];
+                    break;
+                case 'v21': // Best Recommendation
+                    versionTags = [
+                        'Roblox best recommendation', 'Roblox top script recommendation',
+                        'Roblox elite script pick', 'Roblox highly recommended 2025',
+                        'Roblox best script tutorial', 'Roblox ultimate script guide'
+                    ];
+                    break;
+                case 'v22': // Top Recommendation
+                    versionTags = [
+                        'Roblox top recommendation', 'Roblox best script pick', 'Roblox top script 2025',
+                        'Roblox recommended gameplay', 'Roblox top guide', 'Roblox script top choice'
+                    ];
+                    break;
+                case 'v23': // Highly Recommended
+                    versionTags = [
+                        'Roblox highly recommended', 'Roblox top rated script', 'Roblox script must-have',
+                        'Roblox highly recommended hack', 'Roblox top tutorial', 'Roblox 2025 recommended'
+                    ];
+                    break;
+                case 'v24': // Top Choice
+                    versionTags = [
+                        'Roblox top choice', 'Roblox best choice script', 'Roblox top pick 2025',
+                        'Roblox script top choice', 'Roblox elite gameplay', 'Roblox top choice hack'
+                    ];
+                    break;
+                case 'v25': // Most Recommended
+                    versionTags = [
+                        'Roblox most recommended', 'Roblox top script 2025', 'Roblox highly picked script',
+                        'Roblox most recommended tutorial', 'Roblox script popular', 'Roblox 2025 must-have'
+                    ];
+                    break;
+                case 'v26': // Preferred Option
+                    versionTags = [
+                        'Roblox preferred script', 'Roblox top option', 'Roblox preferred hack',
+                        'Roblox script preferred choice', 'Roblox 2025 preferred', 'Roblox top script option'
+                    ];
+                    break;
+                case 'v27': // Must Try
+                    versionTags = [
+                        'Roblox must try script', 'Roblox script must try', 'Roblox try this script',
+                        'Roblox must try hack', 'Roblox 2025 must try', 'Roblox must try tutorial'
+                    ];
+                    break;
+                case 'v28': // Worth It
+                    versionTags = [
+                        'Roblox worth it script', 'Roblox script worth trying', 'Roblox worth it hack',
+                        'Roblox worth it gameplay', 'Roblox 2025 worth it', 'Roblox worth it guide'
+                    ];
+                    break;
+                case 'v29': // Top Rated
+                    versionTags = [
+                        'Roblox top rated script', 'Roblox highly rated', 'Roblox top rated hack',
+                        'Roblox top rated tutorial', 'Roblox 2025 top rated', 'Roblox script top rated'
+                    ];
+                    break;
+                case 'v30': // The Ultimate Choice
+                    versionTags = [
+                        'Roblox ultimate choice', 'Roblox top ultimate script', 'Roblox ultimate hack',
+                        'Roblox ultimate script 2025', 'Roblox ultimate guide', 'Roblox script ultimate pick'
+                    ];
+                    break;
+                case 'v31': // Best of the Best
+                    versionTags = [
+                        'Roblox best of the best', 'Roblox top elite script', 'Roblox best of 2025',
+                        'Roblox ultimate elite hack', 'Roblox best of the best tutorial', 'Roblox top script elite'
+                    ];
+                    break;
+                case 'v32': // Highly Rated
+                    versionTags = [
+                        'Roblox highly rated script', 'Roblox top rated 2025', 'Roblox script high rating',
+                        'Roblox highly rated hack', 'Roblox high rating guide', 'Roblox top rated gameplay'
+                    ];
+                    break;
+                case 'v33': // Most Loved
+                    versionTags = [
+                        'Roblox most loved script', 'Roblox fan favorite script', 'Roblox most loved hack',
+                        'Roblox 2025 most loved', 'Roblox most loved tutorial', 'Roblox script loved by all'
+                    ];
+                    break;
+                case 'v34': // Everyone Recommends
+                    versionTags = [
+                        'Roblox everyone recommends', 'Roblox script everyone loves', 'Roblox top pick by all',
+                        'Roblox 2025 everyone recommends', 'Roblox community favorite', 'Roblox script top recommended'
+                    ];
+                    break;
+                case 'v35': // Most Picked
+                    versionTags = [
+                        'Roblox most picked script', 'Roblox top picked 2025', 'Roblox script most chosen',
+                        'Roblox most picked hack', 'Roblox popular pick', 'Roblox most picked tutorial'
+                    ];
+                    break;
+                case 'v36': // Tried and True
+                    versionTags = [
+                        'Roblox tried and true', 'Roblox proven script', 'Roblox trusted script',
+                        'Roblox 2025 tried and true', 'Roblox reliable hack', 'Roblox tried and true tutorial'
+                    ];
+                    break;
+                case 'v37': // Superior Choice
+                    versionTags = [
+                        'Roblox superior choice', 'Roblox top superior script', 'Roblox superior hack',
+                        'Roblox 2025 superior', 'Roblox superior tutorial', 'Roblox script superior pick'
+                    ];
+                    break;
+                case 'v38': // Best Value Option
+                    versionTags = [
+                        'Roblox best value script', 'Roblox value option', 'Roblox best value hack',
+                        'Roblox 2025 best value', 'Roblox value tutorial', 'Roblox script best value'
+                    ];
+                    break;
+                case 'v39': // The Gold Standard
+                    versionTags = [
+                        'Roblox gold standard', 'Roblox top standard script', 'Roblox gold standard hack',
+                        'Roblox 2025 gold standard', 'Roblox gold standard tutorial', 'Roblox script gold pick'
+                    ];
+                    break;
+                case 'v40': // High-End Choice
+                    versionTags = [
+                        'Roblox high-end choice', 'Roblox premium script', 'Roblox high-end hack',
+                        'Roblox 2025 high-end', 'Roblox high-end tutorial', 'Roblox script high-end pick'
+                    ];
+                    break;
+                case 'v41': // Chosen by Experts
+                    versionTags = [
+                        'Roblox expert choice', 'Roblox chosen by experts', 'Roblox expert script',
+                        'Roblox 2025 expert pick', 'Roblox expert tutorial', 'Roblox script expert recommended'
+                    ];
+                    break;
+                case 'v42': // Quality Recommendation
+                    versionTags = [
+                        'Roblox quality recommendation', 'Roblox high quality script', 'Roblox quality hack',
+                        'Roblox 2025 quality pick', 'Roblox quality tutorial', 'Roblox script quality choice'
+                    ];
+                    break;
+                case 'v43': // Preferred Choice
+                    versionTags = [
+                        'Roblox preferred choice', 'Roblox top preferred script', 'Roblox preferred hack',
+                        'Roblox 2025 preferred choice', 'Roblox preferred tutorial', 'Roblox script preferred pick'
+                    ];
+                    break;
+                case 'v44': // Top-Tier Choice
+                    versionTags = [
+                        'Roblox top-tier choice', 'Roblox elite choice', 'Roblox top-tier script',
+                        'Roblox 2025 top-tier', 'Roblox top-tier tutorial', 'Roblox script top-tier pick'
+                    ];
+                    break;
+                case 'v45': // Elite Pick
+                    versionTags = [
+                        'Roblox elite pick', 'Roblox top elite script', 'Roblox elite hack',
+                        'Roblox 2025 elite choice', 'Roblox elite tutorial', 'Roblox script elite choice'
+                    ];
+                    break;
+                case 'v46': // Smart Choice
+                    versionTags = [
+                        'Roblox smart choice', 'Roblox clever script', 'Roblox smart hack',
+                        'Roblox 2025 smart pick', 'Roblox smart tutorial', 'Roblox script smart choice'
+                    ];
+                    break;
+                case 'v47': // Insider’s Pick
+                    versionTags = [
+                        'Roblox insider pick', 'Roblox expert insider script', 'Roblox insider hack',
+                        'Roblox 2025 insider choice', 'Roblox insider tutorial', 'Roblox script insider choice'
+                    ];
+                    break;
+                case 'v48': // Top of the List
+                    versionTags = [
+                        'Roblox top of the list', 'Roblox number one script', 'Roblox top list hack',
+                        'Roblox 2025 top list', 'Roblox top list tutorial', 'Roblox script top of list'
+                    ];
+                    break;
+                case 'v49': // S-tier Choice
+                    versionTags = [
+                        'Roblox S-tier choice', 'Roblox S-tier script', 'Roblox S-tier hack',
+                        'Roblox 2025 S-tier', 'Roblox S-tier tutorial', 'Roblox script S-tier pick'
+                    ];
+                    break;
+                case 'v50': // The Real Deal
+                    versionTags = [
+                        'Roblox real deal', 'Roblox authentic script', 'Roblox real deal hack',
+                        'Roblox 2025 real deal', 'Roblox real deal tutorial', 'Roblox script real deal'
+                    ];
+                    break;
+                case 'v51': // Top-Tier Stuff
+                    versionTags = [
+                        'Roblox top-tier stuff', 'Roblox elite stuff', 'Roblox top-tier script',
+                        'Roblox 2025 top-tier stuff', 'Roblox top-tier tutorial', 'Roblox script top-tier stuff'
+                    ];
+                    break;
+                case 'v52': // Underrated Gem
+                    versionTags = [
+                        'Roblox underrated gem', 'Roblox hidden gem script', 'Roblox underrated hack',
+                        'Roblox 2025 underrated', 'Roblox underrated tutorial', 'Roblox script underrated gem'
+                    ];
+                    break;
+                case 'v53': // Trusted Choice
+                    versionTags = [
+                        'Roblox trusted choice', 'Roblox reliable script', 'Roblox trusted hack',
+                        'Roblox 2025 trusted', 'Roblox trusted tutorial', 'Roblox script trusted choice'
+                    ];
+                    break;
+                case 'v54': // Proven Favorite
+                    versionTags = [
+                        'Roblox proven favorite', 'Roblox favorite script', 'Roblox proven hack',
+                        'Roblox 2025 proven favorite', 'Roblox proven tutorial', 'Roblox script proven favorite'
+                    ];
+                    break;
+                case 'v55': // Reliable Pick
+                    versionTags = [
+                        'Roblox reliable pick', 'Roblox dependable script', 'Roblox reliable hack',
+                        'Roblox 2025 reliable', 'Roblox reliable tutorial', 'Roblox script reliable choice'
+                    ];
+                    break;
+                case 'v56': // Reputable Choice
+                    versionTags = [
+                        'Roblox reputable choice', 'Roblox trusted script', 'Roblox reputable hack',
+                        'Roblox 2025 reputable', 'Roblox reputable tutorial', 'Roblox script reputable pick'
+                    ];
+                    break;
+                case 'v57': // Verified
+                    versionTags = [
+                        'Roblox verified script', 'Roblox verified hack', 'Roblox verified choice',
+                        'Roblox 2025 verified', 'Roblox verified tutorial', 'Roblox script verified pick'
+                    ];
+                    break;
+                case 'v58': // Confidence Choice
+                    versionTags = [
+                        'Roblox confidence choice', 'Roblox trusted choice', 'Roblox confidence hack',
+                        'Roblox 2025 confidence', 'Roblox confidence tutorial', 'Roblox script confidence pick'
+                    ];
+                    break;
+                case 'v59': // Legit Pick
+                    versionTags = [
+                        'Roblox legit pick', 'Roblox legitimate script', 'Roblox legit hack',
+                        'Roblox 2025 legit', 'Roblox legit tutorial', 'Roblox script legit choice'
+                    ];
+                    break;
+                case 'v60': // Safe Bet
+                    versionTags = [
+                        'Roblox safe bet', 'Roblox reliable script', 'Roblox safe hack',
+                        'Roblox 2025 safe bet', 'Roblox safe tutorial', 'Roblox script safe choice'
+                    ];
+                    break;
+                case 'v61': // Top Pick
+                    versionTags = [
+                        'Roblox top pick', 'Roblox best pick script', 'Roblox top pick hack',
+                        'Roblox 2025 top pick', 'Roblox top pick tutorial', 'Roblox script top pick'
+                    ];
+                    break;
+                case 'v62': // Most Wanted
+                    versionTags = [
+                        'Roblox most wanted', 'Roblox highly wanted script', 'Roblox most wanted hack',
+                        'Roblox 2025 most wanted', 'Roblox most wanted tutorial', 'Roblox script most wanted'
+                    ];
+                    break;
+                case 'v63': // Highly Trusted
+                    versionTags = [
+                        'Roblox highly trusted', 'Roblox trusted script', 'Roblox highly trusted hack',
+                        'Roblox 2025 highly trusted', 'Roblox trusted tutorial', 'Roblox script highly trusted'
+                    ];
+                    break;
+                case 'v64': // Top Trusted Choice
+                    versionTags = [
+                        'Roblox top trusted choice', 'Roblox reliable choice', 'Roblox top trusted hack',
+                        'Roblox 2025 top trusted', 'Roblox trusted tutorial', 'Roblox script top trusted'
+                    ];
+                    break;
+                case 'v65': // Most Efficient Choice
+                    versionTags = [
+                        'Roblox most efficient choice', 'Roblox efficient script', 'Roblox efficient hack',
+                        'Roblox 2025 efficient', 'Roblox efficient tutorial', 'Roblox script efficient pick'
+                    ];
+                    break;
+                case 'v67': // High Impact Option
+                    versionTags = [
+                        'Roblox high impact option', 'Roblox impactful script', 'Roblox high impact hack',
+                        'Roblox 2025 high impact', 'Roblox impact tutorial', 'Roblox script high impact'
+                    ];
+                    break;
+                case 'v68': // The Absolute Best
+                    versionTags = [
+                        'Roblox absolute best', 'Roblox top absolute script', 'Roblox absolute hack',
+                        'Roblox 2025 absolute best', 'Roblox absolute tutorial', 'Roblox script absolute pick'
+                    ];
+                    break;
+                case 'v69': // Best Performing
+                    versionTags = [
+                        'Roblox best performing', 'Roblox top performance script', 'Roblox performing hack',
+                        'Roblox 2025 best performing', 'Roblox performance tutorial', 'Roblox script best performing'
+                    ];
+                    break;
+                case 'v70': // Best Working Option
+                    versionTags = [
+                        'Roblox best working option', 'Roblox working script', 'Roblox best working hack',
+                        'Roblox 2025 best working', 'Roblox working tutorial', 'Roblox script best working'
                     ];
                     break;
                 default:
